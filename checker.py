@@ -1,5 +1,6 @@
 import ezdxf
 import sys
+from ezdxf.addons.drawing.matplotlib import qsave
 
 if len(sys.argv[0]) == 1:
     print("Please supply dxf file as argument")
@@ -18,6 +19,7 @@ try:
         print(f"DXF file {sys.argv[1]} is valid")
     else:
         print(f"DXF file {sys.argv[1]} is not valid")
+    qsave(msp, f'out.png')
 except IOError:
     print("Cannot open dxf file, exiting...")
     sys.exit(1)
